@@ -1,0 +1,76 @@
+{% extends 'menubase.html' %}
+
+{% block head %}
+<title>{{school_name}} 식단표</title>
+<style>
+    table, td, th {
+    border: 1px solid black;
+    }
+
+    table {
+    border-collapse: collapse;
+    width: 80%;
+    }
+
+    th {
+    height: 50px;
+    text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+    {% if school_name == '교동초등학교' %}
+        
+        <form>
+            <input type='date' id='currentDate'>
+            <button class="btn btn-primary btn-sm my-2 my-sm-0" type="submit">검색</button>
+        </form>
+        <br>
+        
+        <div style="width:250px;height:200px;border:1px;float:left;margin-right:20px">
+            <table class = "table">
+                <thead class = "thead-dark">
+                    <tr>
+                        <th>중식</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for menu in menus %}
+                        <tr>
+                            <td>{{menu}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div style="width:250px;height:200px;border:1px;float:left;">
+            <table class = "table">
+                <thead class = "thead-dark">
+                    <tr>
+                        <th>석식</th>
+                    </tr>
+                    </thead>
+                <tbody>
+                    {% for menu in menus %}
+                        <tr>
+                            <td>{{menu}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% else %}
+        <h1>없는 학교입니다.</h1>
+    {% endif %}
+    
+<script>
+  document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
+</script>
+
+{% endblock %}
+
+
