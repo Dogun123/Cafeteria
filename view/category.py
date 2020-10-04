@@ -10,7 +10,7 @@ def menuhome():
 def menulist():
     school_name = request.args.get('school_name')
     menus = []
-    for i in range(5):
+    for i in range(10):
         menus.append("메뉴 {}".format(i))
     print(school_name)
     
