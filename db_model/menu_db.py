@@ -44,7 +44,7 @@ def caf_scrapping(url,school_name):
                         mysql_db.commit()
         return print('크롤링 완료')
 
-make_table('solbat')
-caf_scrapping("http://school.cbe.go.kr/solbat-e/M010303/","solbat")
+# make_table('solbat')
+# caf_scrapping("http://school.cbe.go.kr/solbat-e/M010303/","solbat")
 
 

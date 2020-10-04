@@ -55,14 +55,16 @@ def delete_data(school_name):
     sql = 'TRUNCATE {0}'.format(school_name)
     return cursor.execute(sql)
 
-def data_upload():
+def data_upload(school_name,date):
     cursor = MYSQL_CONN.cursor()
-    sql = "select MENU1, MENU2, MENU3, MENU4, MENU5, MENU6, MENU7, MENU8, MENU9, MENU10 from solbat"
+    sql = "SELECT DATE, MENU1, MENU2, MENU3, MENU4, MENU5, MENU6, MENU7, MENU8, MENU9, MENU10 FROM {0}".format(school_name)
     cursor.execute(sql)
-    result = cursor.fetchone()
-    while result:
-        print(result[2])
+    results = cursor.fetchall()
+    for result in results:
+        if result[0] == date:
+            return result
 
-data_upload()
+
+#print(data_upload('solbat','20200103'))
 
 
