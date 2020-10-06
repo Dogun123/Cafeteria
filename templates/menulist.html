@@ -23,46 +23,12 @@
 
     {% if school_name == '교동초등학교' %}
         
-        <form>
-            <input type='date' id='currentDate'>
+        <form action='menudate' method='get'>
+            <input type='date' id='currentDate', name='date'>
             <button class="btn btn-primary btn-sm my-2 my-sm-0" type="submit">검색</button>
         </form>
         <br>
         
-        <div style="width:250px;height:200px;border:1px;float:left;margin-right:20px">
-            <table class = "table">
-                <thead class = "thead-dark">
-                    <tr>
-                        <th>중식</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for i in range(1,11) %}
-                        <tr>
-                            <td>{{menus[i]}}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
-        <div style="width:250px;height:200px;border:1px;float:left;">
-            <table class = "table">
-                <thead class = "thead-dark">
-                    <tr>
-                        <th>석식</th>
-                    </tr>
-                    </thead>
-                <tbody>
-                    {% for i in range(1,11) %}
-                        <tr>
-                            <td>{{menus[i]}}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
     {% else %}
         <h1>없는 학교입니다.</h1>
     {% endif %}

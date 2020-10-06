@@ -23,7 +23,7 @@ def caf_scrapping(url,school_name):
                         res = requests.get(url+'list?ymd=2020'+month+date)
                         res.raise_for_status()
                         soup = BeautifulSoup(res.text,"lxml")
-                        datetime = '2020'+month+date
+                        datetime = '2020' + '-' + month + '-' + date
                         items = soup.select('#usm-content-body-id > ul.tch-lnc-list > li.tch-lnc-wrap > dl > dd.tch-lnc > ul > li')
 
                         menus = []
@@ -44,7 +44,7 @@ def caf_scrapping(url,school_name):
                         mysql_db.commit()
         return print('크롤링 완료')
 
-# make_table('solbat')
-# caf_scrapping("http://school.cbe.go.kr/solbat-e/M010303/","solbat")
+#make_table('kyodong')
+caf_scrapping("http://school.cbe.go.kr/gyodong-e/M01030703/","kyodong")
 
 

@@ -50,11 +50,13 @@ def show_table():
         sql = "SHOW TABLEs"
         return cursor.execute(sql)
 
+#테이블 데이터 모두 제거
 def delete_data(school_name):
     cursor = MYSQL_CONN.cursor()
     sql = 'TRUNCATE {0}'.format(school_name)
     return cursor.execute(sql)
 
+#테이블 데이터 업로드
 def data_upload(school_name,date):
     cursor = MYSQL_CONN.cursor()
     sql = "SELECT DATE, MENU1, MENU2, MENU3, MENU4, MENU5, MENU6, MENU7, MENU8, MENU9, MENU10 FROM {0}".format(school_name)
@@ -64,7 +66,5 @@ def data_upload(school_name,date):
         if result[0] == date:
             return result
 
-
-#print(data_upload('solbat','20200103'))
 
 
