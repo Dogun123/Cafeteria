@@ -4,8 +4,7 @@ import requests
 def caf_scrapping(url,school_name):
         dates = []
         months = []
-        #url = "http://school.cbe.go.kr/gaesin-e/MABADAHAE/"
-
+        
         for i in range(1,32):
                 date = str(i)
                 if len(date) == 1:
@@ -44,7 +43,7 @@ def caf_scrapping(url,school_name):
                         mysql_db.commit()
         return print('크롤링 완료')
 
-#make_table('kyodong')
-caf_scrapping("http://school.cbe.go.kr/gyodong-e/M01030703/","kyodong")
+make_table('개신초등학교')
+caf_scrapping("http://school.cbe.go.kr/gaesin-e/MABADAHAE/","개신초등학교")
 
 

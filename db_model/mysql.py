@@ -5,7 +5,7 @@ MYSQL_CONN = pymysql.connect(
     port = 3306,
     user = 'root',
     passwd = 'qkrtpdnd123@',
-    db = 'cafeteria_db',
+    db = 'caf_db',
     charset = 'utf8'
 )
 
@@ -65,6 +65,5 @@ def data_upload(school_name,date):
     for result in results:
         if result[0] == date:
             return result
-
 
 

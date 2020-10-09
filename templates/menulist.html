@@ -20,19 +20,14 @@
 {% endblock %}
 
 {% block body %}
-
-    {% if school_name == '교동초등학교' %}
-        
+       
         <form action='menudate' method='get'>
             <input type='date' id='currentDate', name='date'>
+            <input type='hidden' value= {{school_name}} name='school_name'>
             <button class="btn btn-primary btn-sm my-2 my-sm-0" type="submit">검색</button>
         </form>
         <br>
-        
-    {% else %}
-        <h1>없는 학교입니다.</h1>
-    {% endif %}
-    
+          
 <script>
   document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);;
 </script>

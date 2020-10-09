@@ -20,7 +20,8 @@ def menulist():
 @menu_category.route('/menudate',methods=['GET','POST'])
 def menudate():
     date = request.args.get('date')
-    menus = data_upload('kyodong',date)
+    school_name = request.args.get('school_name')
+    menus = data_upload(school_name,date)
     return render_template('menudate.html',menus=menus,today=date)
 
 
