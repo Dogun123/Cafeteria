@@ -32,6 +32,9 @@
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
     <link href="/static/starter-template.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -69,15 +72,27 @@
     <h1>학교 검색</h1><br>
     <form action="menulist" method = "get">
     <p>
-    <input type = "text" name = "school_name" size = 30 maxlength=15 style = "height:50px;font-size:25px"  placeholder = "학교명">
+    {{ form.autocomp }}
     <button class="btn btn-primary btn-lg my-2 my-sm-0" type="submit">검색</button>
     </p>
+    <p id="datalist"></p>
     </form>
   </div>
 
 
 </main><!-- /.container -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
+<script>
+    $(function() {
+        $.ajax({
+            url: '{{ url_for("menu.autocomplete") }}'
+            }).done(function (data){
+                $('#school_autocomplete').autocomplete({
+                    source: data,
+                    minLength: 2
+                });
+            });
+        });
+</script>
 </html>

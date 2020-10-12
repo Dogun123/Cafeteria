@@ -43,7 +43,7 @@ def caf_scrapping(url,school_name):
                         mysql_db.commit()
         return print('크롤링 완료')
 
-make_table('개신초등학교')
-caf_scrapping("http://school.cbe.go.kr/gaesin-e/MABADAHAE/","개신초등학교")
+make_table('풍광초등학교')
+caf_scrapping("http://school.cbe.go.kr/pungkwang-e/M01030601/","풍광초등학교")
 
 
